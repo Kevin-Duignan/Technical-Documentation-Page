@@ -3,12 +3,18 @@ body {
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: min(1.5em, 8vw);
     color: rgb(40, 40, 40);
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 header {
-    font-weight: bold;
-    font-size: 3em;
+    font-size: 2.5em;
     padding: 2.5rem 0 1.5rem 0;   
+}
+
+h3 {
+    font-weight: normal;
+    font-size: 1.6em;
 }
 
 .main-section {
@@ -16,12 +22,13 @@ header {
 }
 
 code {
-    min-width: 1em;
+    min-width: none;
     overflow-wrap: break-word;
-
+    word-break: break-all
 }
 
 .code-block {
+    min-width: none;
     width: 0 auto;
     height: 100%;
     padding: 0.9em;
@@ -35,4 +42,51 @@ code {
     margin: 0 auto;
     border-style: solid;
     border-radius: 30px;
+}
+
+#navbar {
+    size: 150%;
+}
+
+#navbar header {
+    font-weight: normal;
+    font-size: 1.5em;
+    margin: 0 34px 0 34px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    text-align: center;
+}
+ 
+.chapters {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-link {
+    border-top: solid;
+    font-size: larger;
+    width: 92%;
+    padding: 15px 0 15px 34px;;
+    overflow: hidden;
+    text-align: center;
+}
+
+@media (min-width: 1000px) {
+    body {
+        flex-direction: row-reverse;
+    }
+    
+    #navbar {
+        border-right: solid;
+    }
+    
+    #navbar header {
+        text-align: left;
+    }
+    
+    .nav-link {
+        text-align: left;
+    }
 }
