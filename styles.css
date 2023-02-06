@@ -51,11 +51,8 @@ code {
 #navbar header {
     font-weight: normal;
     font-size: 1.5em;
-    margin: 0 34px 0 34px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: clip;
     text-align: center;
+    
 }
  
 .chapters {
@@ -68,9 +65,8 @@ code {
     border-top: solid;
     font-size: larger;
     width: 92%;
-    padding: 15px 0 15px 34px;;
     overflow: hidden;
-    text-align: center;
+    padding: 15px 0 15px 34px;
 }
 
 @media (min-width: 1000px) {
@@ -84,9 +80,10 @@ code {
     
     #navbar header {
         text-align: left;
+        margin: 0 34px 0 34px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
     }
     
-    .nav-link {
-        text-align: left;
-    }
 }
