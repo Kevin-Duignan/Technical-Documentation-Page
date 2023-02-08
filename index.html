@@ -39,14 +39,14 @@
             <div class="horizontal-line"></div>
             <h3>Knowledge Level Assumptions</h3>
             <p>React is a JavaScript library, and so we’ll assume you have a basic understanding of the JavaScript
-                language. <span>If you don’t feel very confident, we recommend going through a <a
+                language. <span class="bold">If you don’t feel very confident, we recommend going through a <a
                         hre="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Language_Overview">JavaScript
                         tutorial</a> to check your knowledge level</span> and enable you to follow along this guide
                 without getting lost. It might take you between 30 minutes and an hour, but as a result you won’t have
                 to feel like you’re learning both React and JavaScript at the same time.</p>
         </section>
-        <section class="main-section" id="Introducing_Jsx">
-            <header>Introducing Jsx</header>
+        <section class="main-section" id="Introducing_JSX">
+            <header>Introducing JSX</header>
             <p>Consider this variable declaration:</p>
             <div class="code-block">
                 <code>const element = &lt;h1&gt;Hello, world!&lt;/h1&gt;;</code>
@@ -55,10 +55,58 @@
             <p>It is called JSX, and it is a syntax extension to JavaScript. We recommend using it with React to
                 describe what the UI should look like. JSX may remind you of a template language, but it comes with the
                 full power of JavaScript.</p>
-            <p>JSX produces React “elements”. We will explore rendering them to the DOM in the next section. Below, you
+            <p>JSX produces React “elements”. We will explore rendering them to the DOM in the <a
+                    href="#Rendering_Elements">next section</a>. Below, you
                 can find the basics of JSX necessary to get you started. </p>
             <h3>Why JSX?</h3>
-            <p></p>
+            <p>React embraces the fact that rendering logic is inherently coupled with other UI logic: how events are
+                handled, how the state changes over time, and how the data is prepared for display. </p>
+            <p>Instead of artificially separating technologies by putting markup and logic in separate files, React
+                <a href="">separates <i>concerns</i></a> with loosely coupled units called “components” that
+                contain
+                both. We will come back
+                to components in a <a href="">further section</a>, but if you’re not yet comfortable putting markup in
+                JS, <a href="">this talk</a>
+                might convince you otherwise.
+            </p>
+            <p>React <a href="">doesn't require</a> using JSX but most people find it helpful as a visual aid when
+                working with UI inside the JavaScript code. It also allows React to show more useful error and warning
+                messages.</p>
+            <p>With that out of the way, let's get started!</p>
+            <h3>Embedding Expressions in JSX</h3>
+            <p>In the example below, we declare a variable called <i class="bold">name</i> and then use it
+                inside JSX by wrapping it in curly braces:</p>
+            <div class="code-block">
+                <code>const name = 'Josh Perez';
+                </br>const element = &lt;h1&gt;Hello, {name}&lt;h1&gt;;</code>
+            </div>
+            <p>You can put any valid <a href="">JavaScript expression</a> inside the curly braces in JSX. For example,
+                <i class="bold">2 + 2</i>,
+                <i class="bold">user.firstName</i>, or <i class="bold">formatName(user)</i> are all valid JavaScript
+                expressions.
+            </p>
+            <p>In the example below, we embed the result of calling a JavaScript function, <i
+                    class="bold">formatName(user)</i>, into an <i class="bold">&lt;h1&gt;</i> element.</p>
+            <div class="code-block">
+                <!-- TODO: For formatting, add tabspaces to code -->
+                <code>
+                    function formatName(user) { </br>
+                        return user.firstName + ' ' + user.lastName; </br>
+                      } </br>
+                    </br>
+                      const user = { </br>
+                        firstName: 'Harper', </br>
+                        lastName: 'Perez' </br>
+                      }; </br>
+                    </br>
+                      const element = ( </br>
+                        &lt;h1&gt; </br>
+                          Hello, {formatName(user)}! </br>
+                        &lt;/h1&gt;</br>
+                      );</br>
+                </code>
+            </div>
+            <a href="">Try it on CodePen</a>
         </section>
         <section class="main-section" id="Rendering_Elements">
             <header>Rendering Elements</header>
@@ -112,10 +160,10 @@
 
     </main>
     <nav id="navbar">
-        <header>React Documentation</header>
+        <header>React Docs</header>
         <div class="chapters">
             <a class="nav-link" href="#Hello_World">Hello World</a>
-            <a class="nav-link" href="#Introducing_Jsx">Introducing Jsx</a>
+            <a class="nav-link" href="#Introducing_JSX">Introducing JSX</a>
             <a class="nav-link" href="#Rendering_Elements">Rendering Elements</a>
             <a class="nav-link" href="#Components_and_Props">Components and Props</a>
             <a class="nav-link" href="#State_and_Lifecycle">State and Lifecycle</a>
