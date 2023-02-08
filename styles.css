@@ -8,17 +8,17 @@ body {
 }
 
 header {
-    font-size: 2.5em;
+    font-size: 2.5rem;
     padding: 2.5rem 0 1.5rem 0;   
 }
 
 h3 {
     font-weight: normal;
-    font-size: 1.6em;
+    font-size: 1.6rem;
 }
 
 .main-section {
-    padding: 0 1.5em;
+    padding: 0 1.5rem;
 }
 
 code {
@@ -58,11 +58,14 @@ code {
 }
 
 .nav-link {
+    color: inherit;
     border-top: solid;
     font-size: larger;
     width: 90%;
     overflow: hidden;
     padding: 15px 0 15px 34px;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 @media (min-width: 800px) {
