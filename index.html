@@ -25,7 +25,6 @@
             </a>
             <p>Click the link above to open an online editor. Feel free to make some changes, and see how they affect
                 the output. Most pages in this guide will have editable examples like this one. </p>
-            <div class="horizontal-line"></div>
             <h3>How to Read This Guide</h3>
             <p>In this guide, we will examine the building blocks of React apps: elements and components. Once you
                 master them, you can create complex apps from small reusable pieces.</p>
@@ -36,7 +35,6 @@
                     class="bold">You can learn most of React by reading the “Main Concepts” guide chapters in the order
                     they appear in the sidebar.</span> For example, “Introducing JSX” is the next chapter after this
                 one.</p>
-            <div class="horizontal-line"></div>
             <h3>Knowledge Level Assumptions</h3>
             <p>React is a JavaScript library, and so we’ll assume you have a basic understanding of the JavaScript
                 language. <span class="bold">If you don’t feel very confident, we recommend going through a <a
@@ -44,6 +42,7 @@
                         tutorial</a> to check your knowledge level</span> and enable you to follow along this guide
                 without getting lost. It might take you between 30 minutes and an hour, but as a result you won’t have
                 to feel like you’re learning both React and JavaScript at the same time.</p>
+            <div class="horizontal-line"></div>
         </section>
         <section class="main-section" id="Introducing_JSX">
             <header>Introducing JSX</header>
@@ -106,7 +105,99 @@
                       );</br>
                 </code>
             </div>
+            </br>
             <a href="">Try it on CodePen</a>
+            <p>We split JSX over multiple lines for readability. While it isn’t required, when doing this, we also
+                recommend wrapping it in parentheses to avoid the pitfalls of <a href="">automatic semicolon</a>
+                insertion.
+            </p>
+            <h3>JSX is an Expression Too</h3>
+            <p>After compilation, JSX expressions become regular JavaScript function calls and evaluate to JavaScript
+                objects.</p>
+            <p>This means that you can use JSX inside of <i class="bold">if</i> statements and <i class="bold">for</i>
+                loops, assign it to variables, accept it as arguments, and return it from functions:
+            </p>
+            <div class="code-block">
+                <code>
+                    function getGreeting(user) { </br>
+                        if (user) { </br>
+                          return &lt;h1&gt;Hello, {formatName(user)}!&lt;/h1&gt;; </br>
+                        }</br>
+                        return &lt;h1&gt;Hello, Stranger.&lt;/h1&gt;; </br>
+                      } </br>
+                      Specifying </br>
+                </code>
+            </div>
+            <h3>Specifying Attributes with JSX</h3>
+            <p>You may use quotes to specify string literals as attributes: </p>
+            <div class="code-block">
+                <code>const element = &lt;a href="https://www.reactjs.org"&gt; link &lt;/a&gt;;</code>
+            </div>
+            <p>You may also use curly braces to embed a JavaScript expression in an attribute: </p>
+            <div class="code-block">
+                <code>const element = &lt;img src={user.avatarUrl}&gt;&lt;/img&gt;</code>
+            </div>
+            <p>Don’t put quotes around curly braces when embedding a JavaScript expression in an attribute. You should
+                either use quotes (for string values) or curly braces (for expressions), but not both in the same
+                attribute. </p>
+            <h3>Warning:</h3>
+            <p>Since JSX is closer to JavaScript than to HTML, React DOM uses <i class="bold">camelCase</i> property
+                naming convention
+                instead of HTML attribute names.</p>
+            <p>For example, <i class="bold">class</i> becomes <a href="">className</a> in JSX, and tabindex becomes
+                tabIndex.</p>
+            <h3>Specifying Children with JSX</h3>
+            <p>If a tag is empty, you may close it immediately with <i class="bold">/&gt;</i>, like XML: </p>
+            <div class="code-block">
+                <code>const element = &lt;img src={user.avatarUrl} /&gt;;                </code>
+            </div>
+            <p>JSX tags may contain children: </p>
+            <div class="code-block">
+                <code>
+                    const element = (</br> 
+                        &lt;div&gt; </br>
+                          &lt;h1&gt;Hello!&lt;/h1&gt; </br>
+                          &lt;h2&gt;Good to see you here.&lt;/h2&gt; </br>
+                        &lt;/div&gt; </br>
+                      );                        
+                </code>
+            </div>
+            <h3>JSX Represents Objects</h3>
+            <p>Babel compiles JSX down to <i class="bold">React.createElement()</i> calls.</p>
+            <p>These two examples are identical: </p>
+            <div class="code-block">
+                <code>
+                    const element = ( </br>
+                    &lt;h1 className="greeting"&gt; </br>
+                      Hello, world! </br>
+                    &lt;/h1&gt; </br>
+                  ); </br>
+                </code>
+            </div>
+            </br>
+            <div class="code-block">
+                <code>
+                    const element = React.createElement( </br>
+                        'h1', </br>
+                        {className: 'greeting'}, </br>
+                        'Hello, world!' </br>
+                    );
+                </code>
+            </div>
+            <p><i class="bold">React.createElement()</i> performs a few checks to help you write bug-free code but
+                essentially it creates an object like this:</p>
+            <div class="code-block">
+                <code>
+                    // Note: this structure is simplified </br>
+                    const element = { </br>
+                      type: 'h1', </br>
+                      props: { </br>
+                        className: 'greeting', </br>
+                        children: 'Hello, world!' </br>
+                      } </br>
+                    }; </br>
+                </code>
+            </div>
         </section>
         <section class="main-section" id="Rendering_Elements">
             <header>Rendering Elements</header>
@@ -130,8 +221,14 @@
         <section class="main-section" id="Handling_Events">
             <header>Handling Events</header>
             <p></p>
-            <code></code>
             <li></li>
+            <code></code>
+        </section>
+        <section class="main-section" id="Conditional_Rendering">
+            <header>Conditional Rendering</header>
+            <p></p>
+            <li></li>
+            <code></code>
         </section>
         <section class="main-section" id="Lists_and_Keys">
             <header>Lists and Keys</header>
@@ -151,6 +248,12 @@
             <li></li>
             <code></code>
         </section>
+        <section class="main-section" id="Composition_vs_Inheritance">
+            <header>Composition vs Inheritance</header>
+            <p></p>
+            <li></li>
+            <code></code>
+        </section>
         <section class="main-section" id="Thinking_in_React">
             <header>Thinking in React</header>
             <p></p>
@@ -162,15 +265,18 @@
     <nav id="navbar">
         <header>React Docs</header>
         <div class="chapters">
-            <a class="nav-link" href="#Hello_World">Hello World</a>
-            <a class="nav-link" href="#Introducing_JSX">Introducing JSX</a>
-            <a class="nav-link" href="#Rendering_Elements">Rendering Elements</a>
-            <a class="nav-link" href="#Components_and_Props">Components and Props</a>
-            <a class="nav-link" href="#State_and_Lifecycle">State and Lifecycle</a>
-            <a class="nav-link" href="#Handling_Events">Handling Events</a>
-            <a class="nav-link" href="#Lists_and_Keys">Lists and Keys</a>
-            <a class="nav-link" href="#Forms">Forms</a>
-            <a class="nav-link" href="#Thinking_in_React">Thinking in React</a>
+            <a class="nav-link" href="#Hello_World">1. Hello World</a>
+            <a class="nav-link" href="#Introducing_JSX">2. Introducing JSX</a>
+            <a class="nav-link" href="#Rendering_Elements">3. Rendering Elements</a>
+            <a class="nav-link" href="#Components_and_Props">4. Components and Props</a>
+            <a class="nav-link" href="#State_and_Lifecycle">5. State and Lifecycle</a>
+            <a class="nav-link" href="#Handling_Events">6. Handling Events</a>
+            <a class="nav-link" href="#Conditional_Rendering">7. Conditional Rendering</a>
+            <a class="nav-link" href="#Lists_and_Keys">8. Lists and Keys</a>
+            <a class="nav-link" href="#Forms">9. Forms</a>
+            <a class="nav-link" href="#Lifting_State_Up">10. Lifting State Up</a>
+            <a class="nav-link" href="#Composition_vs_Inheritance">11. Composition vs Inheritance</a>
+            <a class="nav-link" href="#Thinking_in_React">12. Thinking in React</a>
         </div>
     </nav>
 </body>
