@@ -61,14 +61,17 @@
             <p>React embraces the fact that rendering logic is inherently coupled with other UI logic: how events are
                 handled, how the state changes over time, and how the data is prepared for display. </p>
             <p>Instead of artificially separating technologies by putting markup and logic in separate files, React
-                <a href="">separates <i>concerns</i></a> with loosely coupled units called “components” that
+                <a href="https://en.wikipedia.org/wiki/Separation_of_concerns">separates <i>concerns</i></a> with
+                loosely coupled units called “components” that
                 contain
                 both. We will come back
-                to components in a <a href="">further section</a>, but if you’re not yet comfortable putting markup in
-                JS, <a href="">this talk</a>
+                to components in a <a href="https://reactjs.org/docs/components-and-props.html">further section</a>, but
+                if you’re not yet comfortable putting markup in
+                JS, <a href="https://www.youtube.com/watch?v=x7cQ3mrcKaY&ab_channel=JSConf">this talk</a>
                 might convince you otherwise.
             </p>
-            <p>React <a href="">doesn't require</a> using JSX but most people find it helpful as a visual aid when
+            <p>React <a href="https://reactjs.org/docs/react-without-jsx.html">doesn't require</a> using JSX but most
+                people find it helpful as a visual aid when
                 working with UI inside the JavaScript code. It also allows React to show more useful error and warning
                 messages.</p>
             <p>With that out of the way, let's get started!</p>
@@ -79,7 +82,9 @@
                 <code>const name = 'Josh Perez';
                 </br>const element = &lt;h1&gt;Hello, {name}&lt;h1&gt;;</code>
             </div>
-            <p>You can put any valid <a href="">JavaScript expression</a> inside the curly braces in JSX. For example,
+            <p>You can put any valid <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions">JavaScript
+                    expression</a> inside the curly braces in JSX. For example,
                 <i class="bold">2 + 2</i>,
                 <i class="bold">user.firstName</i>, or <i class="bold">formatName(user)</i> are all valid JavaScript
                 expressions.
@@ -87,28 +92,29 @@
             <p>In the example below, we embed the result of calling a JavaScript function, <i
                     class="bold">formatName(user)</i>, into an <i class="bold">&lt;h1&gt;</i> element.</p>
             <div class="code-block">
-                <!-- TODO: For formatting, add tabspaces to code -->
                 <code>
                     function formatName(user) { </br>
-                        return user.firstName + ' ' + user.lastName; </br>
+                        &emsp;&emsp;return user.firstName + ' ' + user.lastName; </br>
                       } </br>
                     </br>
                       const user = { </br>
-                        firstName: 'Harper', </br>
-                        lastName: 'Perez' </br>
+                        &emsp;&emsp;firstName: 'Harper', </br>
+                        &emsp;&emsp;lastName: 'Perez' </br>
                       }; </br>
                     </br>
                       const element = ( </br>
-                        &lt;h1&gt; </br>
-                          Hello, {formatName(user)}! </br>
-                        &lt;/h1&gt;</br>
+                        &emsp;&emsp;&lt;h1&gt; </br>
+                          &emsp;&emsp;&emsp;&emsp;Hello, {formatName(user)}! </br>
+                        &emsp;&emsp; &lt;/h1&gt;</br>
                       );</br>
                 </code>
             </div>
             </br>
-            <a href="">Try it on CodePen</a>
+            <a href="https://codepen.io/gaearon/pen/PGEjdG?editors=1010">Try it on CodePen</a>
             <p>We split JSX over multiple lines for readability. While it isn’t required, when doing this, we also
-                recommend wrapping it in parentheses to avoid the pitfalls of <a href="">automatic semicolon</a>
+                recommend wrapping it in parentheses to avoid the pitfalls of <a
+                    href="https://stackoverflow.com/questions/2846283/what-are-the-rules-for-javascripts-automatic-semicolon-insertion-asi">automatic
+                    semicolon</a>
                 insertion.
             </p>
             <h3>JSX is an Expression Too</h3>
@@ -120,12 +126,11 @@
             <div class="code-block">
                 <code>
                     function getGreeting(user) { </br>
-                        if (user) { </br>
-                          return &lt;h1&gt;Hello, {formatName(user)}!&lt;/h1&gt;; </br>
-                        }</br>
-                        return &lt;h1&gt;Hello, Stranger.&lt;/h1&gt;; </br>
+                        &emsp;&emsp;if (user) { </br>
+                          &emsp;&emsp;&emsp;&emsp;return &lt;h1&gt;Hello, {formatName(user)}!&lt;/h1&gt;; </br>
+                        &emsp;&emsp;}</br>
+                        &emsp;&emsp;return &lt;h1&gt;Hello, Stranger.&lt;/h1&gt;; </br>
                       } </br>
-                      Specifying </br>
                 </code>
             </div>
             <h3>Specifying Attributes with JSX</h3>
@@ -144,8 +149,11 @@
             <p>Since JSX is closer to JavaScript than to HTML, React DOM uses <i class="bold">camelCase</i> property
                 naming convention
                 instead of HTML attribute names.</p>
-            <p>For example, <i class="bold">class</i> becomes <a href="">className</a> in JSX, and tabindex becomes
-                tabIndex.</p>
+            <p>For example, <i class="bold">class</i> becomes <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/API/Element/className">className</a> in JSX, and
+                tabindex becomes
+                <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex">tabIndex</a>.
+            </p>
             <h3>Specifying Children with JSX</h3>
             <p>If a tag is empty, you may close it immediately with <i class="bold">/&gt;</i>, like XML: </p>
             <div class="code-block">
@@ -155,22 +163,38 @@
             <div class="code-block">
                 <code>
                     const element = (</br> 
-                        &lt;div&gt; </br>
-                          &lt;h1&gt;Hello!&lt;/h1&gt; </br>
-                          &lt;h2&gt;Good to see you here.&lt;/h2&gt; </br>
-                        &lt;/div&gt; </br>
+                        &emsp;&emsp;&lt;div&gt; </br>
+                          &emsp;&emsp;&emsp;&emsp;&lt;h1&gt;Hello!&lt;/h1&gt; </br>
+                          &emsp;&emsp;&emsp;&emsp;&lt;h2&gt;Good to see you here.&lt;/h2&gt; </br>
+                        &emsp;&emsp;&lt;/div&gt; </br>
                       );                        
                 </code>
             </div>
+            <h3>JSX Prevents Injection Attacks</h3>
+            <p>It is safe to embed user input in JSX:</p>
+            <div class="code-block">
+                <code>
+                    const title = response.potentiallyMaliciousInput;</br>
+                    // This is safe: </br>
+                    const element = &lt;h1&gt;{title}&lt;/h1&gt;;
+                    </code>
+            </div>
+            <p>By default, React DOM <a
+                    href="https://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-in-html">escapes</a>
+                any values embedded in JSX before rendering them. thus it ensures that you
+                can never inject anything that's not explicitly written in your application. Everything is converted to
+                a string before being rendered. This helps prevent <a
+                    href="https://en.wikipedia.org/wiki/Cross-site_scripting">XSS (cross-site-scripting) attacks.</a>
+            </p>
             <h3>JSX Represents Objects</h3>
             <p>Babel compiles JSX down to <i class="bold">React.createElement()</i> calls.</p>
             <p>These two examples are identical: </p>
             <div class="code-block">
                 <code>
                     const element = ( </br>
-                    &lt;h1 className="greeting"&gt; </br>
-                      Hello, world! </br>
-                    &lt;/h1&gt; </br>
+                    &emsp;&emsp;&lt;h1 className="greeting"&gt; </br>
+                      &emsp;&emsp;&emsp;&emsp;Hello, world! </br>
+                    &emsp;&emsp;&lt;/h1&gt; </br>
                   ); </br>
                 </code>
             </div>
@@ -178,9 +202,9 @@
             <div class="code-block">
                 <code>
                     const element = React.createElement( </br>
-                        'h1', </br>
-                        {className: 'greeting'}, </br>
-                        'Hello, world!' </br>
+                        &emsp;&emsp;'h1', </br>
+                        &emsp;&emsp;{className: 'greeting'}, </br>
+                        &emsp;&emsp;'Hello, world!' </br>
                     );
                 </code>
             </div>
@@ -190,14 +214,18 @@
                 <code>
                     // Note: this structure is simplified </br>
                     const element = { </br>
-                      type: 'h1', </br>
-                      props: { </br>
-                        className: 'greeting', </br>
-                        children: 'Hello, world!' </br>
-                      } </br>
+                      &emsp;&emsp;type: 'h1', </br>
+                      &emsp;&emsp;props: { </br>
+                        &emsp;&emsp;&emsp;&emsp;className: 'greeting', </br>
+                        &emsp;&emsp;&emsp;&emsp;children: 'Hello, world!' </br>
+                      &emsp;&emsp;} </br>
                     }; </br>
                 </code>
             </div>
+            <p>These objects are called “React elements”. You can think of them as descriptions of what you want to see
+                on the screen. React reads these objects and uses them to construct the DOM and keep it up to date. </p>
+            <p>We will explore rendering React elements to the DOM in the <a
+                    href="https://reactjs.org/docs/rendering-elements.html"> next section.</a> </p>
         </section>
         <section class="main-section" id="Rendering_Elements">
             <header>Rendering Elements</header>
