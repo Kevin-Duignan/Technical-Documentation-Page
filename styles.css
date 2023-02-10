@@ -53,9 +53,7 @@ code {
     border-radius: 30px;
 }
 
-#navbar {
-    overflow: scroll;
-}
+
 #navbar header {
     font-size: 2.9rem;
     text-align: center;
