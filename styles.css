@@ -1,137 +1,137 @@
 body {
-    background: rgb(165,178,182);
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 1.2rem;
-    color: rgb(40, 40, 40);
-    display: flex;
-    flex-direction: column-reverse;
+	background: rgb(165, 178, 182);
+	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+		"Lucida Sans", Arial, sans-serif;
+	font-size: 1.2rem;
+	color: rgb(40, 40, 40);
+	display: flex;
+	flex-direction: column-reverse;
 }
 
 header {
-    font-size: 2.5rem;
-    padding: 2.5rem 0 1.5rem 0;   
-    font-weight: bolder;
+	font-size: 2.5rem;
+	padding: 2.5rem 0 1.5rem 0;
+	font-weight: bolder;
 }
 
 h3 {
-    font-size: 1.5rem;
-    margin-top: 3em;
+	font-size: 1.5rem;
+	margin-top: 3em;
 }
 
 p {
-    line-height: 1.7rem;
+	line-height: 1.7rem;
 }
 
 .bold {
-    font-weight: bold;
+	font-weight: bold;
 }
 .main-section {
-    padding: 0 1.7rem;
+	padding: 0 1.7rem;
 }
 
 code {
-    min-width: none;
-    overflow-wrap: break-word;
-    word-break: break-all
+	min-width: none;
+	overflow-wrap: break-word;
+	word-break: break-all;
 }
 
 .code-block {
-    min-width: none;
-    width: 0 auto;
-    height: 100%;
-    padding: 0.9em 1.5em;
-    border-radius: 20px;
-    background-color: rgb(203, 218, 224);
+	min-width: none;
+	width: 0 auto;
+	height: 100%;
+	padding: 0.9em 1.5em;
+	border-radius: 20px;
+	background-color: rgb(203, 218, 224);
 }
 
 .horizontal-line {
-    border-color: gray;
-    width: 100%;
-    margin: 0 auto;
-    margin-top: +40px;
-    border-style: solid;
-    border-radius: 30px;
+	border-color: gray;
+	width: 100%;
+	margin: 0 auto;
+	margin-top: +40px;
+	border-style: solid;
+	border-radius: 30px;
 }
 
-
 #navbar header {
-    font-size: 2.9rem;
-    text-align: center;
+	font-size: 2.9rem;
+	text-align: center;
 }
 
 .highlight {
-    background-color: antiquewhite;
-    padding: -1px 0;
+	background-color: antiquewhite;
+	padding: -1px 0;
 }
- 
+
 .chapters {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .nav-link {
-    color: inherit;
-    border-top: solid rgb(40, 40, 40);
-    border-bottom: none;
-    font-size: 1.3rem;
-    width: 90%;
-    overflow: hidden;
-    padding: 15px 0 15px 34px;
-    text-decoration: none;
-    cursor: pointer;
-    background-color: inherit;
-    height: auto;
+	color: inherit;
+	border-top: solid rgb(40, 40, 40);
+	border-bottom: none;
+	font-size: 1.3rem;
+	width: 90%;
+	overflow: hidden;
+	padding: 15px 0 15px 34px;
+	text-decoration: none;
+	cursor: pointer;
+	background-color: inherit;
+	height: auto;
 }
 
 .nav-link:last-of-type {
-    border-bottom: solid rgb(40, 40, 40);
+	border-bottom: solid rgb(40, 40, 40);
 }
 
 .nav-link:hover {
-    background-color: antiquewhite;
+	background-color: antiquewhite;
 }
 
 #main-doc a {
-    text-decoration: none;
-    color: inherit;
-    background-color: rgb(159, 189, 199);
-    border-bottom: solid gray;
-    padding: 0 2px;
+	text-decoration: none;
+	color: inherit;
+	background-color: rgb(159, 189, 199);
+	border-bottom: solid gray;
+	padding: 0 2px;
 }
 
 #main-doc a:hover {
-    background-color: rgb(136, 172, 183);
-    border-bottom: solid rgb(40, 40, 40);
-    cursor: pointer;
+	background-color: rgb(136, 172, 183);
+	border-bottom: solid rgb(40, 40, 40);
+	cursor: pointer;
 }
 
 @media (min-width: 900px) {
-    body {
-        display: block;
-    }
-    
-    #navbar {
-        position: fixed;
-        width: 21rem;
-        float: left;
-        border-right: solid;
-        height: 99%;
-        overflow: auto;
-    }
-    
-    #navbar header {
-        text-align: left;
-        margin: -15px 34px 0 34px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: clip;
-    }
-    
-    #main-doc {
-        position: absolute;
-        margin: -2.5rem 0 10rem 20rem;
-        padding: 2rem;
-        float: right;
-    }
+	body {
+		display: block;
+	}
+
+	#navbar {
+		position: fixed;
+		width: 21rem;
+		float: left;
+		border-right: solid;
+		height: 99%;
+		overflow: auto;
+	}
+
+	#navbar header {
+		text-align: left;
+		margin: -15px 34px 0 34px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: clip;
+	}
+
+	#main-doc {
+		position: absolute;
+		margin: -2.5rem 0 10rem 20rem;
+		padding: 2rem;
+		float: right;
+	}
 }
